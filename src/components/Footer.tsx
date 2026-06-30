@@ -19,14 +19,14 @@ export default function Footer({ onCtaClick, onOpenLandingPage }: FooterProps) {
     'name': 'Sydney Creative Websites',
     'image': 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80',
     'url': 'https://sydneycreativewebsites.com.au',
-    'telephone': '+61280004242',
+    'telephone': '+61468147302',
     'email': 'hello@sydneycreativewebsites.com.au',
     'address': {
       '@type': 'PostalAddress',
-      'streetAddress': 'Level 24, 1 O\'Connell St',
-      'addressLocality': 'Sydney',
+      'streetAddress': '160-202 George St',
+      'addressLocality': 'Redfern',
       'addressRegion': 'NSW',
-      'postalCode': '2000',
+      'postalCode': '2016',
       'addressCountry': 'AU'
     },
     'geo': {
@@ -187,12 +187,12 @@ export default function Footer({ onCtaClick, onOpenLandingPage }: FooterProps) {
             <div className="space-y-3.5 text-xs">
               <div className="flex items-start space-x-2.5">
                 <MapPin className="w-4 h-4 text-brand-sky shrink-0 mt-0.5" />
-                <span>Level 24, 1 O'Connell St, Sydney NSW 2000</span>
+                <span>160-202 George St, Redfern NSW 2016</span>
               </div>
               <div className="flex items-center space-x-2.5">
                 <Phone className="w-4 h-4 text-brand-sky shrink-0" />
-                <a href="tel:+61280004242" className="hover:text-white transition-colors">
-                  +61 (02) 8000 4242
+                <a href="tel:+61468147302" className="hover:text-white transition-colors">
+                  0468 147 302
                 </a>
               </div>
               <div className="flex items-center space-x-2.5">
@@ -390,7 +390,7 @@ export default function Footer({ onCtaClick, onOpenLandingPage }: FooterProps) {
         {/* Bottom copyright line */}
         <div className="border-t border-slate-800/80 mt-10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
           <p className="font-sans">
-            &copy; 2026 Sydney Creative Websites. All rights reserved. Registered ABN 84 923 831 292.
+            &copy; 2026 Sydney Creative Websites. All rights reserved. Registered ABN 36 663 494 077.
           </p>
           <p className="flex items-center space-x-1.5 font-sans">
             <span>Made with</span>

@@ -368,7 +368,7 @@ export default function ProposalBuilder({ preselectedServiceId, onClearPreselect
                       <div>
                         <span className="font-display font-bold text-sm text-slate-800">Sydney Creative Websites</span>
                         <span className="block text-[9px] font-semibold text-slate-400 uppercase tracking-widest font-mono">
-                          ABN 84 923 831 292
+                          ABN 36 663 494 077
                         </span>
                       </div>
                       <span className="text-[10px] font-bold text-emerald-600 uppercase tracking-wider bg-emerald-50 border border-emerald-100 px-2.5 py-1 rounded-full">
@@ -473,14 +473,14 @@ export default function ProposalBuilder({ preselectedServiceId, onClearPreselect
                   <div className="p-2 bg-white rounded-lg border border-slate-100 text-brand-blue shrink-0">
                     <MapPin className="w-4 h-4" />
                   </div>
-                  <span>Level 24, 1 O'Connell St, Sydney NSW 2000, Australia</span>
+                  <span>160-202 George St, Redfern NSW 2016, Australia</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="p-2 bg-white rounded-lg border border-slate-100 text-brand-blue shrink-0">
                     <Phone className="w-4 h-4" />
                   </div>
-                  <a href="tel:+61280004242" className="hover:text-brand-blue transition-colors font-medium">
-                    +61 (02) 8000 4242
+                  <a href="tel:+61468147302" className="hover:text-brand-blue transition-colors font-medium">
+                    0468 147 302
                   </a>
                 </div>
                 <div className="flex items-center space-x-3">
@@ -508,8 +508,8 @@ export default function ProposalBuilder({ preselectedServiceId, onClearPreselect
                       <MapPin className="w-5 h-5" />
                     </div>
                     <div className="mt-3.5 bg-white border border-slate-100 rounded-xl p-2.5 px-4 shadow-xl">
-                      <span className="font-display font-bold text-xs text-slate-800 block">Sydney CBD</span>
-                      <span className="text-[9px] text-slate-500 font-medium font-sans">Level 24, 1 O'Connell St</span>
+                      <span className="font-display font-bold text-xs text-slate-800 block">Redfern, Sydney</span>
+                      <span className="text-[9px] text-slate-500 font-medium font-sans">160-202 George St</span>
                     </div>
                   </div>
                 </div>

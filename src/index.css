@@ -50,12 +50,23 @@ html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 body {
   background-color: #FFFFFF;
   color: #1E293B;
   overflow-x: hidden;
+  max-width: 100%;
+  position: relative;
+}
+
+/* Contain off-screen decorative glows/floating cards so they never
+   create horizontal scroll (empty space) on mobile */
+#root {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 ::selection {
