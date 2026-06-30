@@ -135,7 +135,7 @@ export default function Hero({ onCtaClick }: HeroProps) {
                   <span className="w-3 h-3 rounded-full bg-emerald-400 block" />
                 </div>
                 <div className="bg-slate-200/60 text-[10px] text-slate-500 px-6 py-0.5 rounded-full font-mono">
-                  sydneywebsiteco.com.au
+                  sydneycreativewebsites.com.au
                 </div>
                 <div className="w-4 h-4 rounded bg-slate-200/50" />
               </div>

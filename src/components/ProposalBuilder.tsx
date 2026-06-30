@@ -487,8 +487,8 @@ export default function ProposalBuilder({ preselectedServiceId, onClearPreselect
                   <div className="p-2 bg-white rounded-lg border border-slate-100 text-brand-blue shrink-0">
                     <Mail className="w-4 h-4" />
                   </div>
-                  <a href="mailto:hello@sydneywebsiteco.com.au" className="hover:text-brand-blue transition-colors font-medium">
-                    hello@sydneywebsiteco.com.au
+                  <a href="mailto:Info@sydneycreativewebsites.com.au" className="hover:text-brand-blue transition-colors font-medium">
+                    Info@sydneycreativewebsites.com.au
                   </a>
                 </div>
               </div>

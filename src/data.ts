@@ -15,7 +15,7 @@ export const SERVICES_DATA: Service[] = [
       'Fully accessible and easy-to-read layout structures'
     ],
     iconName: 'Layout',
-    priceEstimate: 'From $4,500 AUD',
+    priceEstimate: 'From $500 AUD',
     timeframe: '3 - 4 Weeks'
   },
   {
@@ -32,7 +32,7 @@ export const SERVICES_DATA: Service[] = [
       'Friendly customer dashboards and order history trackers'
     ],
     iconName: 'ShoppingBag',
-    priceEstimate: 'From $7,500 AUD',
+    priceEstimate: 'From $1,000 AUD',
     timeframe: '4 - 6 Weeks'
   },
   {
@@ -49,7 +49,7 @@ export const SERVICES_DATA: Service[] = [
       'Custom fields designed for your specific business information'
     ],
     iconName: 'Layers',
-    priceEstimate: 'From $4,000 AUD',
+    priceEstimate: 'From $1,500 AUD',
     timeframe: '3 - 4 Weeks'
   },
   {
@@ -66,14 +66,14 @@ export const SERVICES_DATA: Service[] = [
       'Frictionless transfer of your historical content and files'
     ],
     iconName: 'RefreshCw',
-    priceEstimate: 'From $3,500 AUD',
+    priceEstimate: 'From $2,000 AUD',
     timeframe: '2 - 3 Weeks'
   },
   {
     id: 'seo-services',
     title: 'SEO Web Design Sydney',
     description: 'Bespoke SEO web design Sydney structures combining professional website development Sydney standards with advanced technical SEO optimization to scale your business.',
-    longDescription: 'Getting visitors is only half the battle—they need to be the right visitors. We focus on local Sydney search terms and useful, answering content that shows potential clients you are the absolute expert in your field.',
+    longDescription: 'Getting visitors is only half the battle. They need to be the right visitors. We focus on local Sydney search terms and useful, answering content that shows potential clients you are the absolute expert in your field.',
     features: [
       'Research into what your actual customers are searching for',
       'Clean coding standards that help Google read your pages easily',
@@ -341,7 +341,7 @@ export const FAQS_DATA: FAQ[] = [
   {
     id: 'faq-1',
     question: 'How much does a custom website design project cost?',
-    answer: 'Every project is built completely custom from scratch, meaning prices vary based on your specific needs. Generally, our custom brand marketing websites start at $4,500 AUD, custom WordPress portals start at $4,000 AUD, and high-performance eCommerce platforms start at $7,500 AUD. We provide fixed-price quotes with complete breakdown estimates prior to any commitment.',
+    answer: 'Every project is built completely custom from scratch, meaning prices vary based on your specific needs. Generally, our custom brand marketing websites, custom WordPress portals, and high-performance eCommerce platforms start from $500 AUD. We provide fixed-price quotes with complete breakdown estimates prior to any commitment.',
     category: 'pricing'
   },
   {

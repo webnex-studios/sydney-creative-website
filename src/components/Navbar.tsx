@@ -56,23 +56,11 @@ export default function Navbar({ onNavClick, activeSection }: NavbarProps) {
               onClick={() => handleItemClick('home')}
             >
               <div className="relative w-11 h-11 flex items-center justify-center rounded-xl bg-slate-50 border border-slate-100/80 shadow-sm group-hover:scale-105 transition-transform duration-300">
-                <svg className="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="nav-logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#FE3423" />
-                      <stop offset="50%" stopColor="#FF5E36" />
-                      <stop offset="100%" stopColor="#FF8A56" />
-                    </linearGradient>
-                  </defs>
-                  <path
-                    d="M 24 78 H 70 C 77.7 78 84 71.7 84 64 C 84 56.3 77.7 50 70 50 H 30 C 22.3 50 16 43.7 16 36 C 16 28.3 22.3 22 30 22 H 74"
-                    stroke="url(#nav-logo-gradient)"
-                    strokeWidth="16"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <circle cx="86" cy="14" r="8.5" fill="#FE3423" />
-                </svg>
+                <img
+                  src="/logo-icon.png"
+                  alt="Sydney Creative Websites logo"
+                  className="w-9 h-9 object-contain"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-display font-bold text-lg tracking-tight text-slate-900 group-hover:text-brand-blue transition-colors duration-300">

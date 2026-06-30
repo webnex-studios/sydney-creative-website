@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { 
-  Rocket, MapPin, Phone, Mail, Globe, CheckCircle2, 
-  ArrowRight, Heart, Star, FileText, Check 
+  Rocket, MapPin, Phone, Mail, Globe, CheckCircle2,
+  ArrowRight, Heart, Star, FileText
 } from 'lucide-react';
 
 interface FooterProps {
@@ -20,7 +20,7 @@ export default function Footer({ onCtaClick, onOpenLandingPage }: FooterProps) {
     'image': 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80',
     'url': 'https://sydneycreativewebsites.com.au',
     'telephone': '+61468147302',
-    'email': 'hello@sydneycreativewebsites.com.au',
+    'email': 'Info@sydneycreativewebsites.com.au',
     'address': {
       '@type': 'PostalAddress',
       'streetAddress': '160-202 George St',
@@ -73,7 +73,7 @@ export default function Footer({ onCtaClick, onOpenLandingPage }: FooterProps) {
           <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-brand-cyan/20 rounded-full blur-[40px]" />
 
           <div className="max-w-3xl mx-auto space-y-6 relative z-10">
-            <span className="font-sans text-xs font-bold uppercase tracking-widest text-brand-sky bg-white/10 px-4 py-1.5 rounded-full inline-block">
+            <span className="font-sans text-xs font-bold uppercase tracking-widest text-white bg-white/20 px-4 py-1.5 rounded-full inline-block">
               🚀 LET'S TALK ABOUT YOUR WEBSITE
             </span>
             <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-tight">
@@ -107,24 +107,12 @@ export default function Footer({ onCtaClick, onOpenLandingPage }: FooterProps) {
           {/* Logo & Agency Info */}
           <div className="md:col-span-4 space-y-5">
             <div className="flex items-center space-x-3">
-              <div className="relative w-10 h-10 flex items-center justify-center rounded-xl bg-slate-800 border border-slate-700/50 shadow-inner group">
-                <svg className="w-6.5 h-6.5" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="footer-logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#FE3423" />
-                      <stop offset="50%" stopColor="#FF5E36" />
-                      <stop offset="100%" stopColor="#FF8A56" />
-                    </linearGradient>
-                  </defs>
-                  <path
-                    d="M 24 78 H 70 C 77.7 78 84 71.7 84 64 C 84 56.3 77.7 50 70 50 H 30 C 22.3 50 16 43.7 16 36 C 16 28.3 22.3 22 30 22 H 74"
-                    stroke="url(#footer-logo-gradient)"
-                    strokeWidth="16"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <circle cx="86" cy="14" r="8.5" fill="#FE3423" />
-                </svg>
+              <div className="relative w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-700/50 shadow-inner group">
+                <img
+                  src="/logo-icon.png"
+                  alt="Sydney Creative Websites logo"
+                  className="w-8 h-8 object-contain"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-display font-bold text-base tracking-tight text-white">
@@ -197,192 +185,11 @@ export default function Footer({ onCtaClick, onOpenLandingPage }: FooterProps) {
               </div>
               <div className="flex items-center space-x-2.5">
                 <Mail className="w-4 h-4 text-brand-sky shrink-0" />
-                <a href="mailto:hello@sydneywebsiteco.com.au" className="hover:text-white transition-colors">
-                  hello@sydneywebsiteco.com.au
+                <a href="mailto:Info@sydneycreativewebsites.com.au" className="hover:text-white transition-colors">
+                  Info@sydneycreativewebsites.com.au
                 </a>
               </div>
             </div>
-          </div>
-
-        </div>
-
-        {/* Technical SEO Index & Sitemap simulation footer */}
-        <div className="pt-12 border-t border-slate-800/60 mt-16 space-y-10 ">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 text-slate-500 font-sans">
-            
-            {/* Left SEO Column (Keywords) */}
-            <div className="lg:col-span-8 space-y-8">
-              
-              <div>
-                <span className="font-bold text-slate-300 block uppercase tracking-wider text-[10px] mb-3">
-                  🎯 Primary Search Intent Keywords (Transactional)
-                </span>
-                <div className="flex flex-wrap gap-1.5 font-medium">
-                  {[
-                    { text: 'web design sydney', id: 'web-design' },
-                    { text: 'website design sydney', id: 'web-design' },
-                    { text: 'web designer sydney', id: 'web-design' },
-                    { text: 'website designer sydney', id: 'web-design' },
-                    { text: 'sydney web design agency', id: 'web-design' },
-                    { text: 'website development sydney', id: 'development' },
-                    { text: 'custom website design sydney', id: 'web-design' },
-                    { text: 'business website design sydney', id: 'web-design' },
-                    { text: 'small business web design sydney', id: 'web-design' },
-                    { text: 'affordable web design sydney', id: 'web-design' },
-                    { text: 'professional web design sydney', id: 'web-design' },
-                    { text: 'website design company sydney', id: 'web-design' },
-                    { text: 'web development company sydney', id: 'development' },
-                    { text: 'wordpress developer sydney', id: 'development' },
-                    { text: 'wordpress web design sydney', id: 'development' }
-                  ].map((item, i) => (
-                    <button
-                      key={i}
-                      onClick={() => onOpenLandingPage(item.id)}
-                      className="px-2.5 py-1 bg-slate-800/80 text-slate-400 rounded-md hover:text-white hover:bg-slate-750 transition-colors text-[10px] cursor-pointer"
-                    >
-                      {item.text}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <span className="font-bold text-slate-300 block uppercase tracking-wider text-[10px] mb-3">
-                  🔍 Commercial Investigation Keywords
-                </span>
-                <div className="flex flex-wrap gap-1.5 font-medium">
-                  {[
-                    { text: 'best web design agency sydney', id: 'web-design' },
-                    { text: 'top web designers sydney', id: 'web-design' },
-                    { text: 'best website developers sydney', id: 'development' },
-                    { text: 'website design services sydney', id: 'web-design' },
-                    { text: 'creative web agency sydney', id: 'web-design' },
-                    { text: 'custom website developers sydney', id: 'development' },
-                    { text: 'website redesign sydney', id: 'web-design' },
-                    { text: 'ecommerce website design sydney', id: 'ecommerce' },
-                    { text: 'responsive web design sydney', id: 'web-design' },
-                    { text: 'SEO web design sydney', id: 'seo' }
-                  ].map((item, i) => (
-                    <button
-                      key={i}
-                      onClick={() => onOpenLandingPage(item.id)}
-                      className="px-2.5 py-1 bg-slate-800/80 text-slate-400 rounded-md hover:text-white hover:bg-slate-750 transition-colors text-[10px] cursor-pointer"
-                    >
-                      {item.text}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <span className="font-bold text-slate-300 block uppercase tracking-wider text-[10px] mb-3">
-                  💡 Long-Tail Keywords (High Conversion Leads)
-                </span>
-                <div className="flex flex-wrap gap-1.5 font-medium">
-                  {[
-                    { text: 'website designer for small business sydney', id: 'web-design' },
-                    { text: 'affordable website design for startups sydney', id: 'web-design' },
-                    { text: 'custom wordpress website sydney', id: 'development' },
-                    { text: 'website redesign services sydney', id: 'web-design' },
-                    { text: 'website design and seo packages sydney', id: 'seo' },
-                    { text: 'hire web designer in sydney', id: 'web-design' },
-                    { text: 'web development agency for local businesses sydney', id: 'development' },
-                    { text: 'professional business website design sydney', id: 'web-design' },
-                    { text: 'website maintenance services sydney', id: 'development' },
-                    { text: 'website design company near me sydney', id: 'web-design' }
-                  ].map((item, i) => (
-                    <button
-                      key={i}
-                      onClick={() => onOpenLandingPage(item.id)}
-                      className="px-2.5 py-1 bg-slate-800/80 text-slate-400 rounded-md hover:text-white hover:bg-slate-750 transition-colors text-[10px] cursor-pointer"
-                    >
-                      {item.text}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-            </div>
-
-            {/* Right SEO Column (Services & Location suburb pages) */}
-            <div className="lg:col-span-4 space-y-8">
-              
-              <div>
-                <span className="font-bold text-slate-300 block uppercase tracking-wider text-[10px] mb-3">
-                  💻 Service-Based Landing Pages
-                </span>
-                <div className="grid grid-cols-2 gap-2 text-[10px] font-semibold text-slate-400">
-                  <button onClick={() => onOpenLandingPage('web-design')} className="flex items-center space-x-1.5 p-2 bg-slate-800/50 hover:bg-slate-850 hover:text-white rounded-lg cursor-pointer text-left">
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-blue" />
-                    <span>Web Design</span>
-                  </button>
-                  <button onClick={() => onOpenLandingPage('development')} className="flex items-center space-x-1.5 p-2 bg-slate-800/50 hover:bg-slate-850 hover:text-white rounded-lg cursor-pointer text-left">
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-violet" />
-                    <span>Development</span>
-                  </button>
-                  <button onClick={() => onOpenLandingPage('seo')} className="flex items-center space-x-1.5 p-2 bg-slate-800/50 hover:bg-slate-850 hover:text-white rounded-lg cursor-pointer text-left">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span>SEO Services</span>
-                  </button>
-                  <button onClick={() => onOpenLandingPage('ecommerce')} className="flex items-center space-x-1.5 p-2 bg-slate-800/50 hover:bg-slate-850 hover:text-white rounded-lg cursor-pointer text-left">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-                    <span>eCommerce</span>
-                  </button>
-                </div>
-              </div>
-
-              <div>
-                <span className="font-bold text-slate-300 block uppercase tracking-wider text-[10px] mb-3">
-                  📍 Local Suburb SEO Landing Pages
-                </span>
-                <div className="grid grid-cols-2 gap-2 text-[10px] font-semibold text-slate-400">
-                  {[
-                    { label: 'web design parramatta', id: 'parramatta' },
-                    { label: 'web designer north sydney', id: 'north-sydney' },
-                    { label: 'website design surry hills', id: 'surry-hills' },
-                    { label: 'web design western sydney', id: 'western-sydney' },
-                    { label: 'website developer eastern suburbs sydney', id: 'eastern-suburbs' },
-                    { label: 'web design inner west sydney', id: 'inner-west' }
-                  ].map((sub, i) => (
-                    <button
-                      key={i}
-                      onClick={() => onOpenLandingPage(sub.id)}
-                      className="flex items-center space-x-1.5 p-2 bg-slate-800/50 hover:bg-slate-850 hover:text-white rounded-lg cursor-pointer text-left"
-                    >
-                      <MapPin className="w-3.5 h-3.5 text-brand-sky shrink-0" />
-                      <span className="truncate">{sub.label}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="bg-slate-800/40 p-4.5 rounded-2xl border border-slate-800 space-y-2 text-[10px] leading-relaxed">
-                <span className="font-bold text-slate-300 block uppercase tracking-wider text-[9px]">
-                  ⚙️ Active Technical SEO Validations
-                </span>
-                <div className="grid grid-cols-2 gap-1.5 text-slate-400 font-semibold">
-                  <div className="flex items-center space-x-1">
-                    <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                    <span>LocalBusiness Schema</span>
-                  </div>
-                  <div className="flex items-center space-x-1">
-                    <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                    <span>JSON-LD Maps Code</span>
-                  </div>
-                  <div className="flex items-center space-x-1">
-                    <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                    <span>FAQ Microdata Schema</span>
-                  </div>
-                  <div className="flex items-center space-x-1">
-                    <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                    <span>WCAG AA Accessible</span>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
           </div>
 
         </div>
