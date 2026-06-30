@@ -107,11 +107,11 @@ export default function Footer({ onCtaClick, onOpenLandingPage }: FooterProps) {
           {/* Logo & Agency Info */}
           <div className="md:col-span-4 space-y-5">
             <div className="flex items-center space-x-3">
-              <div className="relative w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-700/50 shadow-inner group">
+              <div className="relative w-14 h-14 flex items-center justify-center rounded-xl bg-white border border-slate-700/50 shadow-inner group">
                 <img
                   src="/logo-icon.png"
                   alt="Sydney Creative Websites logo"
-                  className="w-8 h-8 object-contain"
+                  className="w-12 h-12 object-contain"
                 />
               </div>
               <div className="flex flex-col">

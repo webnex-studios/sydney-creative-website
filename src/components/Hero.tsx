@@ -119,7 +119,7 @@ export default function Hero({ onCtaClick }: HeroProps) {
           </div>
 
           {/* Right Side Visual Device Interactive Mockup */}
-          <div className="lg:col-span-5 relative flex justify-center items-center">
+          <div className="hidden md:flex lg:col-span-5 relative  justify-center items-center">
             {/* Interactive Desktop Screen Mockup */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95, x: 20 }}
