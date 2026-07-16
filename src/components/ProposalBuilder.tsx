@@ -7,6 +7,9 @@ import {
   Sparkles, ShieldCheck, Download, CheckCircle2, ArrowRight, Loader2 
 } from 'lucide-react';
 
+const SENDMAIL_ENDPOINT = 'https://demo-client.us/sendmail/v1/submit.php';
+const SENDMAIL_API_KEY = 'sm_4f2df731c1d7b9df98dc35666a07cf81a44647277d3d375c';
+
 interface ProposalBuilderProps {
   preselectedServiceId?: string;
   onClearPreselect?: () => void;
@@ -52,7 +55,7 @@ export default function ProposalBuilder({ preselectedServiceId, onClearPreselect
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.businessName || !form.email) {
       alert('Please fill out your Name, Business Name, and Email.');
@@ -61,19 +64,62 @@ export default function ProposalBuilder({ preselectedServiceId, onClearPreselect
 
     // Interactive step-by-step generation sequence
     setLoadingStep(1);
-    
-    setTimeout(() => {
-      setLoadingStep(2);
-    }, 1000);
+    const stepTimers = [
+      setTimeout(() => setLoadingStep(2), 1000),
+      setTimeout(() => setLoadingStep(3), 2000)
+    ];
 
-    setTimeout(() => {
-      setLoadingStep(3);
-    }, 2000);
+    // Compose the enquiry email body from all form fields
+    const selectedServices = SERVICES_DATA
+      .filter(s => form.services.includes(s.id))
+      .map(s => s.title)
+      .join(', ');
 
-    setTimeout(() => {
+    const message = [
+      'New proposal request from sydneycreativewebsites.com.au',
+      '',
+      `Name: ${form.name}`,
+      `Business: ${form.businessName}`,
+      `Email: ${form.email}`,
+      `Phone: ${form.phone || 'Not provided'}`,
+      `Services: ${selectedServices}`,
+      `Budget: $${form.budget.toLocaleString()} AUD`,
+      `Timeline: ${form.timeline}`,
+      `Preferred Call: ${form.bookingDate || 'Not booked'}${form.bookingTime ? ` at ${form.bookingTime}` : ''}`,
+      '',
+      'Project Details:',
+      form.projectDetails || 'Not provided'
+    ].join('\n');
+
+    const data = new FormData();
+    data.append('name', form.name);
+    data.append('email', form.email);
+    data.append('message', message);
+
+    const minAnimation = new Promise(resolve => setTimeout(resolve, 3200));
+
+    try {
+      const [res] = await Promise.all([
+        fetch(SENDMAIL_ENDPOINT, {
+          method: 'POST',
+          headers: { 'X-API-Key': SENDMAIL_API_KEY },
+          body: data
+        }),
+        minAnimation
+      ]);
+
+      if (!res.ok) {
+        throw new Error(`Mail API responded with status ${res.status}`);
+      }
+
       setLoadingStep(4);
       setIsSubmitted(true);
-    }, 3200);
+    } catch (err) {
+      console.error('Form submission failed:', err);
+      stepTimers.forEach(clearTimeout);
+      setLoadingStep(0);
+      alert('Sorry, something went wrong sending your request. Please try again, or email us directly at Info@sydneycreativewebsites.com.au.');
+    }
   };
 
   // Generate mock on-page SEO keywords based on business details

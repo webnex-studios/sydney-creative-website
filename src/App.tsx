@@ -13,11 +13,13 @@ import ProposalBuilder from './components/ProposalBuilder';
 import Blog from './components/Blog';
 import Footer from './components/Footer';
 import SEOLandingPage from './components/SEOLandingPage';
+import LegalPage, { LegalPageId } from './components/LegalPage';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [preselectedServiceId, setPreselectedServiceId] = useState<string | undefined>(undefined);
   const [activeLandingPage, setActiveLandingPage] = useState<string | null>(null);
+  const [activeLegalPage, setActiveLegalPage] = useState<LegalPageId | null>(null);
 
   // Smooth scroll handler
   const handleScrollToSection = (sectionId: string) => {
@@ -130,9 +132,10 @@ export default function App() {
       </main>
 
       {/* Footer and final conversions */}
-      <Footer 
-        onCtaClick={handleScrollToSection} 
+      <Footer
+        onCtaClick={handleScrollToSection}
         onOpenLandingPage={handleOpenLandingPage}
+        onOpenLegalPage={setActiveLegalPage}
       />
 
       {/* Dynamic SEO & Local Suburb Landing Page Portals */}
@@ -142,6 +145,16 @@ export default function App() {
             pageId={activeLandingPage}
             onClose={() => setActiveLandingPage(null)}
             onBookClick={handleLandingPageBookClick}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Terms & Conditions / Privacy Policy Pages */}
+      <AnimatePresence>
+        {activeLegalPage && (
+          <LegalPage
+            pageId={activeLegalPage}
+            onClose={() => setActiveLegalPage(null)}
           />
         )}
       </AnimatePresence>

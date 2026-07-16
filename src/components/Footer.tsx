@@ -8,9 +8,10 @@ import {
 interface FooterProps {
   onCtaClick: (sectionId: string) => void;
   onOpenLandingPage: (pageId: string) => void;
+  onOpenLegalPage: (pageId: 'terms' | 'privacy') => void;
 }
 
-export default function Footer({ onCtaClick, onOpenLandingPage }: FooterProps) {
+export default function Footer({ onCtaClick, onOpenLandingPage, onOpenLegalPage }: FooterProps) {
   
   // Local Business & Review Schema markups for rich snippet technical SEO compliance
   const localBusinessSchema = {
@@ -164,6 +165,8 @@ export default function Footer({ onCtaClick, onOpenLandingPage }: FooterProps) {
               <li><button onClick={() => onCtaClick('about')} className="hover:text-white transition-colors cursor-pointer">About Us</button></li>
               <li><button onClick={() => onCtaClick('pricing')} className="hover:text-white transition-colors cursor-pointer">Scope Pricing</button></li>
               <li><button onClick={() => onCtaClick('blog')} className="hover:text-white transition-colors cursor-pointer">Digital Blog</button></li>
+              <li><button onClick={() => onOpenLegalPage('terms')} className="hover:text-white transition-colors cursor-pointer">Terms & Conditions</button></li>
+              <li><button onClick={() => onOpenLegalPage('privacy')} className="hover:text-white transition-colors cursor-pointer">Privacy Policy</button></li>
             </ul>
           </div>
 
@@ -196,9 +199,26 @@ export default function Footer({ onCtaClick, onOpenLandingPage }: FooterProps) {
 
         {/* Bottom copyright line */}
         <div className="border-t border-slate-800/80 mt-10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
-          <p className="font-sans">
-            &copy; 2026 Sydney Creative Websites. All rights reserved. Registered ABN 36 663 494 077.
-          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 font-sans">
+            <p>
+              &copy; 2026 Sydney Creative Websites. All rights reserved. Registered ABN 36 663 494 077.
+            </p>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => onOpenLegalPage('terms')}
+                className="hover:text-white transition-colors cursor-pointer underline underline-offset-2 decoration-slate-700"
+              >
+                Terms & Conditions
+              </button>
+              <span className="text-slate-700">|</span>
+              <button
+                onClick={() => onOpenLegalPage('privacy')}
+                className="hover:text-white transition-colors cursor-pointer underline underline-offset-2 decoration-slate-700"
+              >
+                Privacy Policy
+              </button>
+            </div>
+          </div>
           <p className="flex items-center space-x-1.5 font-sans">
             <span>Made with</span>
             <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
