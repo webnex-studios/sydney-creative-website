@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { X, FileText, ShieldCheck } from 'lucide-react';
+import { ArrowLeft, FileText, ShieldCheck } from 'lucide-react';
 
 export type LegalPageId = 'terms' | 'privacy';
 
@@ -199,88 +200,109 @@ const LEGAL_PAGES: Record<LegalPageId, LegalPageData> = {
 
 interface LegalPageProps {
   pageId: LegalPageId;
-  onClose: () => void;
 }
 
-export default function LegalPage({ pageId, onClose }: LegalPageProps) {
+export default function LegalPage({ pageId }: LegalPageProps) {
   const data = LEGAL_PAGES[pageId];
 
   if (!data) return null;
 
   const BadgeIcon = data.id === 'privacy' ? ShieldCheck : FileText;
+  const otherPage = data.id === 'privacy'
+    ? { to: '/terms-and-conditions', label: 'Terms & Conditions' }
+    : { to: '/privacy-policy', label: 'Privacy Policy' };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-0 sm:p-4"
-    >
-      <motion.div
-        initial={{ opacity: 0, scale: 0.98, y: 30 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.98, y: 30 }}
-        transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-        className="relative w-full max-w-3xl bg-white sm:rounded-3xl shadow-2xl border border-slate-100/80 overflow-hidden flex flex-col min-h-screen sm:min-h-0 sm:max-h-[92vh]"
-      >
-        {/* Top bar */}
-        <div className="bg-slate-50 border-b border-slate-100 px-6 py-4 flex justify-between items-center shrink-0">
-          <div className="flex items-center space-x-2">
-            <span className="font-mono text-[10px] bg-blue-100 text-brand-blue px-2.5 py-1 rounded-full font-bold uppercase tracking-wider inline-flex items-center">
-              <BadgeIcon className="w-3 h-3 mr-1.5" />
-              {data.badge}
+    <div className="min-h-screen bg-white font-sans text-slate-800 antialiased flex flex-col">
+
+      {/* Page Header */}
+      <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+          <Link to="/" className="flex items-center space-x-3 group">
+            <div className="relative w-11 h-11 flex items-center justify-center rounded-xl bg-slate-50 border border-slate-100/80 shadow-sm group-hover:scale-105 transition-transform duration-300">
+              <img
+                src="/logo-icon.png"
+                alt="Sydney Creative Websites logo"
+                className="w-9 h-9 object-contain"
+              />
+            </div>
+            <span className="font-display font-bold text-lg tracking-tight text-slate-900 group-hover:text-brand-blue transition-colors duration-300">
+              Sydney Creative Websites
             </span>
-          </div>
-          <button
-            onClick={onClose}
-            className="p-1.5 rounded-xl bg-white hover:bg-slate-100 border border-slate-200/50 text-slate-500 hover:text-slate-900 transition-colors cursor-pointer flex items-center space-x-1"
+          </Link>
+          <Link
+            to="/"
+            className="inline-flex items-center space-x-1.5 px-4 py-2 text-xs font-bold text-slate-600 bg-slate-50 hover:bg-slate-100 border border-slate-200/60 rounded-xl transition-colors cursor-pointer"
           >
-            <span className="text-xs font-bold font-sans pr-1 hidden sm:inline">Close</span>
-            <X className="w-4 h-4" />
-          </button>
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>Back to Home</span>
+          </Link>
+        </div>
+      </header>
+
+      {/* Page Content */}
+      <motion.main
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className="flex-1 max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16"
+      >
+        <div className="space-y-3">
+          <span className="font-mono text-[10px] bg-blue-100 text-brand-blue px-2.5 py-1 rounded-full font-bold uppercase tracking-wider inline-flex items-center">
+            <BadgeIcon className="w-3 h-3 mr-1.5" />
+            {data.badge}
+          </span>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-slate-900 tracking-tight leading-tight">
+            {data.title}
+          </h1>
+          <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">
+            Last updated: {data.lastUpdated}
+          </p>
+          <div className="w-20 h-1.5 bg-gradient-to-r from-brand-blue via-brand-indigo to-brand-violet rounded-full" />
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed pt-2 max-w-3xl">
+            {data.intro}
+          </p>
         </div>
 
-        {/* Scrollable Content */}
-        <div className="overflow-y-auto p-6 sm:p-10 space-y-8 flex-1">
-          <div className="space-y-3">
-            <h1 className="text-3xl sm:text-4xl font-display font-extrabold text-slate-900 tracking-tight leading-tight">
-              {data.title}
-            </h1>
-            <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 font-sans">
-              Last updated: {data.lastUpdated}
-            </p>
-            <div className="w-20 h-1.5 bg-gradient-to-r from-brand-blue via-brand-indigo to-brand-violet rounded-full" />
-            <p className="text-sm text-slate-600 leading-relaxed font-sans pt-2">
-              {data.intro}
-            </p>
-          </div>
+        <div className="space-y-8 mt-10">
+          {data.sections.map((section, idx) => (
+            <div key={idx} className="space-y-2.5">
+              <h2 className="font-display font-bold text-lg text-slate-900">
+                {section.heading}
+              </h2>
+              {section.paragraphs?.map((text, pIdx) => (
+                <p key={pIdx} className="text-sm sm:text-base text-slate-600 leading-relaxed">
+                  {text}
+                </p>
+              ))}
+              {section.bullets && (
+                <ul className="space-y-2 pl-1">
+                  {section.bullets.map((item, bIdx) => (
+                    <li key={bIdx} className="flex items-start space-x-2.5 text-sm sm:text-base text-slate-600 leading-relaxed">
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-blue shrink-0 mt-2" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
+      </motion.main>
 
-          <div className="space-y-7">
-            {data.sections.map((section, idx) => (
-              <div key={idx} className="space-y-2.5">
-                <h2 className="font-display font-bold text-base text-slate-900">
-                  {section.heading}
-                </h2>
-                {section.paragraphs?.map((text, pIdx) => (
-                  <p key={pIdx} className="text-sm text-slate-600 leading-relaxed font-sans">
-                    {text}
-                  </p>
-                ))}
-                {section.bullets && (
-                  <ul className="space-y-2 pl-1">
-                    {section.bullets.map((item, bIdx) => (
-                      <li key={bIdx} className="flex items-start space-x-2.5 text-sm text-slate-600 leading-relaxed font-sans">
-                        <span className="w-1.5 h-1.5 rounded-full bg-brand-blue shrink-0 mt-1.5" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            ))}
+      {/* Page Footer strip */}
+      <footer className="bg-slate-900 text-slate-400 py-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px]">
+          <p>
+            &copy; 2026 Sydney Creative Websites. All rights reserved. Registered ABN 36 663 494 077.
+          </p>
+          <div className="flex items-center gap-3">
+            <Link to="/" className="hover:text-white transition-colors">Home</Link>
+            <span className="text-slate-700">|</span>
+            <Link to={otherPage.to} className="hover:text-white transition-colors">{otherPage.label}</Link>
           </div>
         </div>
-      </motion.div>
-    </motion.div>
+      </footer>
+    </div>
   );
 }

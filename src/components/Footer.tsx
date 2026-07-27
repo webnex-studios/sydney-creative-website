@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { 
+import {
   Rocket, MapPin, Phone, Mail, Globe, CheckCircle2,
   ArrowRight, Heart, Star, FileText
 } from 'lucide-react';
@@ -8,10 +9,9 @@ import {
 interface FooterProps {
   onCtaClick: (sectionId: string) => void;
   onOpenLandingPage: (pageId: string) => void;
-  onOpenLegalPage: (pageId: 'terms' | 'privacy') => void;
 }
 
-export default function Footer({ onCtaClick, onOpenLandingPage, onOpenLegalPage }: FooterProps) {
+export default function Footer({ onCtaClick, onOpenLandingPage }: FooterProps) {
   
   // Local Business & Review Schema markups for rich snippet technical SEO compliance
   const localBusinessSchema = {
@@ -165,8 +165,8 @@ export default function Footer({ onCtaClick, onOpenLandingPage, onOpenLegalPage 
               <li><button onClick={() => onCtaClick('about')} className="hover:text-white transition-colors cursor-pointer">About Us</button></li>
               <li><button onClick={() => onCtaClick('pricing')} className="hover:text-white transition-colors cursor-pointer">Scope Pricing</button></li>
               <li><button onClick={() => onCtaClick('blog')} className="hover:text-white transition-colors cursor-pointer">Digital Blog</button></li>
-              <li><button onClick={() => onOpenLegalPage('terms')} className="hover:text-white transition-colors cursor-pointer">Terms & Conditions</button></li>
-              <li><button onClick={() => onOpenLegalPage('privacy')} className="hover:text-white transition-colors cursor-pointer">Privacy Policy</button></li>
+              <li><Link to="/terms-and-conditions" className="hover:text-white transition-colors cursor-pointer">Terms & Conditions</Link></li>
+              <li><Link to="/privacy-policy" className="hover:text-white transition-colors cursor-pointer">Privacy Policy</Link></li>
             </ul>
           </div>
 
@@ -201,22 +201,22 @@ export default function Footer({ onCtaClick, onOpenLandingPage, onOpenLegalPage 
         <div className="border-t border-slate-800/80 mt-10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 font-sans">
             <p>
-              &copy; 2026 Sydney Creative Websites. All rights reserved. Registered ABN 36 663 494 077.
+              &copy; 2026 Sydney Creative Websites. All rights reserved. Registered ABN 36 663 494 077.<br />Financial operations managed by <span className="font-medium">Webnex Studios</span>
             </p>
             <div className="flex items-center gap-3">
-              <button
-                onClick={() => onOpenLegalPage('terms')}
+              <Link
+                to="/terms-and-conditions"
                 className="hover:text-white transition-colors cursor-pointer underline underline-offset-2 decoration-slate-700"
               >
                 Terms & Conditions
-              </button>
+              </Link>
               <span className="text-slate-700">|</span>
-              <button
-                onClick={() => onOpenLegalPage('privacy')}
+              <Link
+                to="/privacy-policy"
                 className="hover:text-white transition-colors cursor-pointer underline underline-offset-2 decoration-slate-700"
               >
                 Privacy Policy
-              </button>
+              </Link>
             </div>
           </div>
           <p className="flex items-center space-x-1.5 font-sans">

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'motion/react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -13,13 +14,22 @@ import ProposalBuilder from './components/ProposalBuilder';
 import Blog from './components/Blog';
 import Footer from './components/Footer';
 import SEOLandingPage from './components/SEOLandingPage';
-import LegalPage, { LegalPageId } from './components/LegalPage';
+import LegalPage from './components/LegalPage';
 
-export default function App() {
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+function HomePage() {
   const [activeSection, setActiveSection] = useState('home');
   const [preselectedServiceId, setPreselectedServiceId] = useState<string | undefined>(undefined);
   const [activeLandingPage, setActiveLandingPage] = useState<string | null>(null);
-  const [activeLegalPage, setActiveLegalPage] = useState<LegalPageId | null>(null);
 
   // Smooth scroll handler
   const handleScrollToSection = (sectionId: string) => {
@@ -59,7 +69,7 @@ export default function App() {
   // Monitor active scroll sections for high-end sticky Navbar synchronization
   useEffect(() => {
     const sections = ['home', 'services', 'portfolio', 'process', 'about', 'pricing', 'blog', 'contact'];
-    
+
     const observerOptions = {
       root: null,
       rootMargin: '-30% 0px -60% 0px', // Trigger when section occupies the sweet spot of the viewport
@@ -75,7 +85,7 @@ export default function App() {
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
-    
+
     sections.forEach((id) => {
       const element = document.getElementById(id);
       if (element) observer.observe(element);
@@ -91,7 +101,7 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-white font-sans text-slate-800 antialiased selection:bg-blue-100 selection:text-slate-900">
-      
+
       {/* Premium Navigation Header */}
       <Navbar onNavClick={handleScrollToSection} activeSection={activeSection} />
 
@@ -119,9 +129,9 @@ export default function App() {
         <Testimonials />
 
         {/* Quote Estimator & Proposal Builder Form */}
-        <ProposalBuilder 
-          preselectedServiceId={preselectedServiceId} 
-          onClearPreselect={handleClearPreselect} 
+        <ProposalBuilder
+          preselectedServiceId={preselectedServiceId}
+          onClearPreselect={handleClearPreselect}
         />
 
         {/* FAQ accordions with Schema dynamic rendering */}
@@ -135,7 +145,6 @@ export default function App() {
       <Footer
         onCtaClick={handleScrollToSection}
         onOpenLandingPage={handleOpenLandingPage}
-        onOpenLegalPage={setActiveLegalPage}
       />
 
       {/* Dynamic SEO & Local Suburb Landing Page Portals */}
@@ -149,16 +158,19 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Terms & Conditions / Privacy Policy Pages */}
-      <AnimatePresence>
-        {activeLegalPage && (
-          <LegalPage
-            pageId={activeLegalPage}
-            onClose={() => setActiveLegalPage(null)}
-          />
-        )}
-      </AnimatePresence>
-
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/terms-and-conditions" element={<LegalPage pageId="terms" />} />
+        <Route path="/privacy-policy" element={<LegalPage pageId="privacy" />} />
+      </Routes>
+    </>
   );
 }
