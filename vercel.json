@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/((?!lp/|lp$|assets/|.*\\.).*)$", "destination": "/index.html" }
+  ]
+}

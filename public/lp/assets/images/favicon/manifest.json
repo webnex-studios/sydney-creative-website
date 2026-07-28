@@ -1,0 +1,13 @@
+{
+  "name": "Brandrums",
+  "icons": [
+    {
+      "src": "/lp/assets/images/favicon/android-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#d42a2a",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}
