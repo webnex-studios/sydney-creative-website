@@ -3965,5 +3965,3 @@ body.popup-open {
 .syd-logo span { font-size: 20px; font-weight: 800; color: #fff; letter-spacing: .2px; line-height: 1.1; }
 .fixed .syd-logo img { height: 40px; }
 @media (max-width: 600px) { .syd-logo span { font-size: 14px; } .syd-logo img { height: 38px; } }
-/* No live chat on this LP */
-.chat_now { display: none !important; }
