@@ -201,7 +201,7 @@ export default function Footer({ onCtaClick, onOpenLandingPage }: FooterProps) {
         <div className="border-t border-slate-800/80 mt-10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 font-sans">
             <p>
-              &copy; 2026 Sydney Creative Websites. All rights reserved. Registered ABN 36 663 494 077.<br />Financial operations managed by <span className="font-medium">Webnex Studios</span>
+              &copy; 2026 Sydney Creative Websites. All rights reserved. Registered ABN 36 663 494 077.<br />Owned by <span className="font-medium">Potter Group Holdings</span>
             </p>
             <div className="flex items-center gap-3">
               <Link
